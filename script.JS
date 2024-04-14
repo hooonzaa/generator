@@ -23,16 +23,31 @@ for (let i = 0; i < iDelka - 3; i++) {
 document.getElementById("majkl").innerHTML = newPass.slice(0, iDelka);
 }
  
-function password(){
+function register() {
+    let username = document.getElementById("regUsername").value;
+    let password = document.getElementById("regPassword").value;
 
-
-    
+    if (username && password) {
+        localStorage.setItem("username", username);
+        localStorage.setItem("password", password);
+        alert("Registrace proběhla úspěšně.");
+    } else {
+        alert("Prosím vyplňte uživatelské jméno a heslo.");
+    }
 }
 
+function login() {
+    let regUsername = localStorage.getItem("username");
+    let regPassword = localStorage.getItem("password");
+    let username = document.getElementById("loginUsername").value;
+    let password = document.getElementById("loginPassword").value;
 
-
-
-
+    if (username === regUsername && password === regPassword) {
+        alert("Přihlášení úspěšné.");
+    } else {
+        alert("Nesprávné uživatelské jméno nebo heslo.");
+    }
+}
 
 
 
